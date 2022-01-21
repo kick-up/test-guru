@@ -6,5 +6,8 @@ class CreateAnswers < ActiveRecord::Migration[7.0]
 
       t.timestamps
     end
+    change_column_null :answers, :body, false
+    change_column_null :answers, :correct, false
+    change_column_default :answers, :correct, from: nil, to: true
   end
 end
