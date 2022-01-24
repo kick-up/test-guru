@@ -4,4 +4,33 @@
 # Examples:
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
+
+users = User.create!([
+  { name: 'Darkhan'},
+  { name: 'Bek'},
+  { name: 'kick-up'}
+])
+
+categories = Category.create!([
+  { title: 'back-end' },
+  { title: 'front-end' },
+  { title: 'machine learning' },
+])
+
+tests = Test.create!([
+    { level: 2, title: 'Ruby', category_id: categories[0].id },
+    { level: 3, title: 'Javascript', category_id: categories[1].id },
+    { level: 1, title: 'Python', category_id: categories[2].id }
+])
+
+questions = Question.create!([
+  { body: 'Ruby: Question 1', test_id: tests[0].id },
+  { body: 'Javascript: Question 2', test_id: tests[1].id },
+  { body: 'Python: Question 3', test_id: tests[2].id }
+])
+
+answers = Answer.create!([
+  { body: 'Ruby: Answer 1', question_id: questions[0].id },
+  { body: 'Javascript: Answer 2', question_id: questions[1].id },
+  { body: 'Python: Answer 3', question_id: questions[2].id }
+])
