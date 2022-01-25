@@ -34,3 +34,9 @@ answers = Answer.create!([
   { body: 'Javascript: Answer 2', question_id: questions[1].id },
   { body: 'Python: Answer 3', question_id: questions[2].id }
 ])
+
+results = Result.create!([
+  { status: true, user_id: users[0].id, test_id: tests[0].id },
+  { status: true, user_id: users[1].id, test_id: tests[1].id },
+  { status: true, user_id: users[2].id, test_id: tests[2].id }
+])
