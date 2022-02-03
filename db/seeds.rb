@@ -6,9 +6,9 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 
 users = User.create!([
-  { name: 'Darkhan'},
-  { name: 'Bek'},
-  { name: 'kick-up'}
+  { name: 'darhanbek89@gmail.com'},
+  { name: 'bekmuhanbet_kz@mail.ru'},
+  { name: 'blog@gmail.com'}
 ])
 
 categories = Category.create!([
@@ -35,8 +35,8 @@ answers = Answer.create!([
   { body: 'Python: Answer 3', question_id: questions[2].id }
 ])
 
-results = Result.create!([
-  { status: true, user_id: users[0].id, test_id: tests[0].id },
-  { status: true, user_id: users[1].id, test_id: tests[1].id },
-  { status: true, user_id: users[2].id, test_id: tests[2].id }
+TestsUser.create!([
+  { test: tests[0], user: users[0] }
 ])
+
+
