@@ -6,9 +6,9 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 
 users = User.create!([
-  { name: 'darhanbek89@gmail.com'},
-  { name: 'bekmuhanbet_kz@mail.ru'},
-  { name: 'blog@gmail.com'}
+  { email: 'darhanbek89@gmail.com'},
+  { email: 'bekmuhanbet_kz@mail.ru'},
+  { email: 'blog@gmail.com'}
 ])
 
 categories = Category.create!([
@@ -18,9 +18,9 @@ categories = Category.create!([
 ])
 
 tests = Test.create!([
-    { level: 2, title: 'Ruby', category_id: categories[0].id },
-    { level: 3, title: 'Javascript', category_id: categories[1].id },
-    { level: 1, title: 'Python', category_id: categories[2].id }
+    { level: 2, title: 'Ruby', category_id: categories[0].id, author_id: users[0].id },
+    { level: 3, title: 'Javascript', category_id: categories[1].id, author_id: users[1].id},
+    { level: 1, title: 'Python', category_id: categories[2].id, author_id: users[2].id }
 ])
 
 questions = Question.create!([
@@ -29,10 +29,13 @@ questions = Question.create!([
   { body: 'Python: Question 3', test_id: tests[2].id }
 ])
 
-answers = Answer.create!([
-  { body: 'Ruby: Answer 1', question_id: questions[0].id },
-  { body: 'Javascript: Answer 2', question_id: questions[1].id },
-  { body: 'Python: Answer 3', question_id: questions[2].id }
+Answer.create!([
+  { body: 'Ruby: Answer 1', correct: false, question: questions[0] },
+  { body: 'Ruby: Answer 1', correct: false, question: questions[0] },
+  { body: 'Ruby: Answer 1', correct: false, question: questions[0] },
+  { body: 'Ruby: Answer 1', question: questions[0] },
+  { body: 'Javascript: Answer 2', question: questions[1] },
+  { body: 'Python: Answer 3', question: questions[2] }
 ])
 
 TestsUser.create!([
