@@ -5,7 +5,7 @@ class QuestionsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_question_not_found
 
   def index
-    @questions = @test.questions.all
+    @questions = @test.questions
   end
 
   def show
@@ -17,13 +17,18 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
-    question = @question.destroy!
-    redirect_to "/tests/1/questions"
+    @question.destroy
+    redirect_to test_questions_path(@questions.test)
   end
 
   def create
-    @question = @test.questions.create!(question_params)
-    redirect_to "/tests/1/questions/#{question.id}"
+    question = @test.questions.new(question_params)
+
+    if question.save 
+      redirect_to action: :index
+    else
+      render plain: "Question does not qualify"
+    end
   end
 
   private
