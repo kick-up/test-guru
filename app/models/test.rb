@@ -11,9 +11,10 @@ class Test < ApplicationRecord
     message: 'only one test per level' }
  
 
-  scope :easy, -> { where (level: 0..1) }
-  scope :medium, -> { where (level: 2..4) }
-  scope :difficult, -> { where (level: 5..Float::INFINITY) }
+  scope :easy, -> { by_level(0..1) }
+  scope :medium, -> { by_level(2..4) }
+  scope :difficult, -> { by_level (5..Float::INFINITY) }
+  scope :by_level, -> (level) { where(level: level) }
   scope :by_category, -> (title) { 
     joins(:category)
     .where(categories: {title: title})

@@ -1,0 +1,4 @@
+<% @questions.each do |question| %>
+<p><%= question.body %></p>
+<%= link_to "delete", question_path(question), method: :delete %>
+<%end %>
