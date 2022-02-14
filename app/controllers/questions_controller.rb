@@ -1,19 +1,17 @@
 class QuestionsController < ApplicationController
-  before_action :find_question, only: [:show, :destroy]
-  before_action :find_test, only: [:index, :create, :new]
+  before_action :find_question, only: [:destroy, :edit, :update]
+  before_action :find_test, only: [:create, :new]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_question_not_found
 
-  def index
-    @questions = @test.questions
+  def show
   end
 
-  def show
-    render inline: '<%=@question.body %>'
+  def edit 
   end
 
   def new
-
+    @question = @test.questions.new
   end
 
   def destroy
@@ -25,9 +23,17 @@ class QuestionsController < ApplicationController
     question = @test.questions.new(question_params)
 
     if question.save 
-      redirect_to action: :index
+      redirect_to test_path(@test)
     else
-      render plain: "Question does not qualify"
+      render :new
+    end
+  end
+
+  def update
+    if @question.update(question_params)
+      redirect_to test_path(@question.test)
+    else
+      render :edit
     end
   end
 
