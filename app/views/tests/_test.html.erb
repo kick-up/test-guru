@@ -1,0 +1,9 @@
+  <p>
+    <%= test.title %>
+    <%= link_to 'Show', test_path(test) %>
+    <%= link_to 'Edit', edit_test_path(test) %>
+      <%= link_to 'Delete',
+                  test_path(test),
+                  method: :delete,
+                  data: { confirm: 'Are you sure?' } %>
+  </p>
