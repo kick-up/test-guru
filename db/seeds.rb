@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 
+
 users = User.create!([
   { email: 'darhanbek89@gmail.com'},
   { email: 'bekmuhanbet_kz@mail.ru'},
@@ -29,17 +30,12 @@ questions = Question.create!([
   { body: 'Python: Question 3', test_id: tests[2].id }
 ])
 
-Answer.create!([
+answer = Answer.create!([
   { body: 'Ruby: Answer 1', correct: false, question: questions[0] },
-  { body: 'Ruby: Answer 1', correct: false, question: questions[0] },
-  { body: 'Ruby: Answer 1', correct: false, question: questions[0] },
-  { body: 'Ruby: Answer 1', question: questions[0] },
-  { body: 'Javascript: Answer 2', question: questions[1] },
-  { body: 'Python: Answer 3', question: questions[2] }
+  { body: 'Ruby: Answer 2', correct: false, question: questions[0] },
+  { body: 'Ruby: Answer 3', correct: false, question: questions[0] },
+  { body: 'Ruby: Answer 4', question: questions[0] },
+  { body: 'Javascript: Answer 1', question: questions[1] },
+  { body: 'Python: Answer 1', question: questions[2] }
 ])
-
-TestsUser.create!([
-  { test: tests[0], user: users[0] }
-])
-
 
