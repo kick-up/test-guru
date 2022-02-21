@@ -15,14 +15,14 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
-    @question.destroy
+    @question.destroy!
     redirect_to test_questions_path(@questions.test)
   end
 
   def create
-    question = @test.questions.new(question_params)
+    @question = @test.questions.new(question_params)
 
-    if question.save 
+    if @question.save
       redirect_to test_path(@test)
     else
       render :new

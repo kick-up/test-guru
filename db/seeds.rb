@@ -30,7 +30,7 @@ questions = Question.create!([
   { body: 'Python: Question 3', test_id: tests[2].id }
 ])
 
-answer = Answer.create!([
+Answer.create!([
   { body: 'Ruby: Answer 1', correct: false, question: questions[0] },
   { body: 'Ruby: Answer 2', correct: false, question: questions[0] },
   { body: 'Ruby: Answer 3', correct: false, question: questions[0] },
