@@ -1,10 +1,9 @@
-<p><%= question.body %></p>
-<tr>
-  <td>
-    <%= link_to "delete", question_path(question), method: :delete %>
-    |
-  </td>
-  <td>
-    <%= link_to "edit", edit_question_path(question) %>
-  </td>
-</tr>
+<li>
+    <%= question.body %><br>
+    <%= link_to 'Show', question_path(question) %>|
+    <%= link_to 'Edit', edit_question_path(question) %>|
+    <%= link_to 'Delete',
+                  question_path(question),
+                  method: :delete,
+                  data: { confirm: 'Are you sure?' } %>
+</li>
