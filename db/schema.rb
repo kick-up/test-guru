@@ -1,4 +1,4 @@
-  # This file is auto-generated from the current state of the database. Instead
+# This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
 #
@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_19_075327) do
+ActiveRecord::Schema.define(version: 2022_02_28_155754) do
 
   create_table "answers", force: :cascade do |t|
     t.text "body", null: false
@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 2022_02_19_075327) do
     t.text "email", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "password_digest"
   end
 
   add_foreign_key "test_passages", "questions", column: "current_question_id"
