@@ -7,6 +7,9 @@ module User::Auth
 
   included do 
     validates :email, presence: true
+    validates :email, :presence => true,
+                      :uniqueness => true,
+                      :format => { with: URI::MailTo::EMAIL_REGEXP }
     validates :password, presence: true, if: Proc.new { |u| u.password_digest.blank? }
     validates :password, confirmation: true
   end

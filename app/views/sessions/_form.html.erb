@@ -1,6 +1,8 @@
 <%= form_with url: sessions_path, data: { turbo: false }, local: true do |form| %>
-  <% if flash[:alert] %>
-    <%= content_tag :p, flash[:alert], class: 'flash alert' %>
+  <% flash.each do |key, value| %>
+      <p class="<%= flash_class(key) %>">
+        <%= value %>
+      </p>
   <% end %>
 
   <p>

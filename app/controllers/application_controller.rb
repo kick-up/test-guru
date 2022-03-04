@@ -1,11 +1,14 @@
 class ApplicationController < ActionController::Base
 
+  include SessionsHelper
+
   helper_method :current_user
   helper_method :logged_in?
 
   private
 
   def authenticate_user!
+    cookies[:request_url] = request.original_url
     unless current_user
       redirect_to login_path
     end
