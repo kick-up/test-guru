@@ -1,10 +1,7 @@
 <%= form_with url: sessions_path, data: { turbo: false }, local: true do |form| %>
-  <% flash.each do |key, value| %>
-      <p class="<%= flash_class(key) %>">
-        <%= value %>
-      </p>
-  <% end %>
-
+  
+  <%= flash_message(:alert) %>
+  
   <p>
     <%= form.label :email %><br>
     <%= form.text_field :email, id: :email %>

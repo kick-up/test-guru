@@ -1,7 +1,5 @@
 class SessionsController < ApplicationController
   
-  include SessionsHelper
-
   def new
 
   end
@@ -10,7 +8,7 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:email])
 
     if user&.authenticate(params[:password])
-      log_in(user)
+      session[:user_id] = user.id
       redirect_to cookies.delete(:request_url) || tests_path
     else
       flash.now[:alert] = 'Are you a Guru? Verify your email and password please'
@@ -19,7 +17,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    log_out
+    session.delete(:user_id)
     redirect_to root_url
   end
 

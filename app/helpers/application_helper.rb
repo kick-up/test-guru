@@ -1,10 +1,6 @@
 module ApplicationHelper
-  
-  def flash_class(level)
-    case level
-        when 'notice' then "flash info"
-        when 'success' then "flash success"
-        when 'alert' then "flash alert"
-    end
+
+  def flash_message(message)
+    content_tag :p, flash[message], class: 'flash alert' if flash[message]
   end
 end
