@@ -1,14 +1,11 @@
 module User::Auth
-
-  VALID_EMAIL = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
-
+  
   extend ActiveSupport::Concern
 
   attr_reader :password
   attr_writer :password_confirmation
 
   included do 
-    validates :email, presence: true, uniqueness: true, format: VALID_EMAIL
     validates :password, presence: true, if: Proc.new { |u| u.password_digest.blank? }
     validates :password, confirmation: true
   end
