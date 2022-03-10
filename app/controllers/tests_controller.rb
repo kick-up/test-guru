@@ -1,4 +1,5 @@
 class TestsController < ApplicationController
+  
   before_action :set_test, only: [:show, :edit, :update, :destroy, :start]
   before_action :set_user, only: :start
 
