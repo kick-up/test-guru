@@ -1,15 +1,5 @@
-<% if logged_in? %>
+<% if user_signed_in? %>
   <p class="nav user">Welcome, <b><%= current_user.email %></b> <%= link_to "Guru", 'about' %></p>
-  <p class="nav user"><%= link_to "Log out", logout_path, method: :delete %></p>
-<% else %>
-  <header>
-    <div>
-      <nav>
-        <ul>
-          <li><%= link_to "Sign up", 'signup' %></li>
-          <li><%= link_to "Log in", 'login' %></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+  <p class="nav user"><%= link_to "Logout", destroy_user_session_path, method: :delete %></p>
 <% end %>
+
