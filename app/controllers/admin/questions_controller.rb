@@ -1,4 +1,4 @@
-class QuestionsController < ApplicationController
+class Admin::QuestionsController < Admin::BaseController
   
   before_action :find_question, only: [:destroy, :edit, :update, :show]
   before_action :find_test, only: [:create, :new]
@@ -17,14 +17,14 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question.destroy
-    redirect_to test_questions_path(@questions.test)
+    redirect_to admin_test_path(@questions.test)
   end
 
   def create
     @question = @test.questions.new(question_params)
 
     if @question.save
-      redirect_to test_path(@test)
+      redirect_to admin_test_path(@test)
     else
       render :new
     end
@@ -32,7 +32,7 @@ class QuestionsController < ApplicationController
 
   def update
     if @question.update(question_params)
-      redirect_to test_path(@question.test)
+      redirect_to admin_test_path(@question.test)
     else
       render :edit
     end
