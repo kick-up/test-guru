@@ -1,0 +1,11 @@
+<%= form_with model: [:admin, @test, @question], data: { turbo: false }, local: true do |form| %>
+  <%= render 'shared/errors', resource: @question %>
+  <p>
+    <%= form.label :body %><br>
+    <%= form.text_field :body %>
+  </p>
+  <p>
+    <%= form.submit %>
+    <%= link_to "back", admin_tests_path %>
+  </p>
+<% end %>
