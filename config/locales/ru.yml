@@ -40,6 +40,10 @@ ru:
       question: "Вопрос %{number} из %{count}"
     result:
       header: "Тест %{title} успешно завершен!"
+      success: "Поздравления! Ваше результат:"
+      failure: "Рекомендуем повторить тему. Ваш результат:"
+      score: "%{score} процентов"
+      back: :Назад к списку тестов"
 
   tests:
     index:
@@ -106,3 +110,23 @@ ru:
     start: "Начать"
     next: "Следующий"
     resend_confirmation: "Отправить инструкцию для подтверждения аккаунта"
+
+  devise:
+    registrations:
+      new:
+        header: "Станьте настоящим Guru"
+        length: "символов минимум"
+    sessions:
+      new:
+        header: "Войдите в чертоги Guru"
+    confirmations:
+      new:
+        header: "Повторный запрос на подтверждение"
+    shared:
+      links:
+        login: "Логин"
+        signup: "Регистрация"
+        forgot_password: "Забыли свой пароль?"
+        confirmation_instruction: "Не получили инструкцию для подтверждения аккаунта?"
+        unlock_instruction: "Не получили инструкцию для разблокировки аккаунта?"
+
