@@ -5,4 +5,5 @@ class Users::SessionsController < Devise::SessionsController
     flash[:notice] = "Welcome #{current_user.first_name}!"
   end
 
+
 end

@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <title>TestGuru</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
@@ -9,11 +12,14 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-
-  <body>
+  
+  <body class="d-flex flex-column">
     <%= render "layouts/header" %>
-    <%= render "shared/flash" %>
-    <%= yield %>
+    <div class="container">
+      <%= render "shared/flash" %>
+      <%= yield %>
+    </div>
+
     <%= render "layouts/footer" %>
   </body>
 </html>

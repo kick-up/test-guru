@@ -1,17 +1,22 @@
-<h1><%= t('.header', title: @test_passage.test.title) %> </h1>
-<p><%= t('.question', number: @test_passage.current_question_number, count: @test_passage.test.questions.count) %></p>
+<div class="container">
+  <h5 class="mt-4"><%= t('.header', title: @test_passage.test.title) %></h5>
 
-<b>
-  <%= @test_passage.current_question.body %>
-</b>
+  <p>
+    <%= t('.question', number: @test_passage.current_question_number, size: @test_passage.test.questions.size) %>
+  </p>
 
-<%= form_with url: test_passage_path(@test_passage), data: { turbo: false }, local: true, method: :put do |form| %>
-  <%= form.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :body, include_hidden: false do |b| %>
-    <p>
-      <%= b.label %>
-      <%= b.check_box id: "answer_ids_#{b.object.id}" %>
-    </p>
-  <% end %>
+  <p>
+    <b><%= @test_passage.current_question.body %></b>
+  </p>
+</div>
 
-  <p><%= form.submit t('global_buttons.next') %></p>
+<%= form_with(url: test_passage_path(@test_passage),  html: { class: 'form-check' }, local: true, method: :put) do |form| %>
+    <%= form.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :body, include_hidden: false do |b| %>
+      <div class="form-check mt-1">
+        <%= b.check_box class: 'form-check-input', id: "answer_ids_#{b.object.id}" %>
+        <%= b.label class: 'form-check-label' %>
+      </div>
+    <% end %>
+
+    <p><%= form.submit t('global_buttons.next'), class: "btn btn-primary mt-2" %></p>
 <% end %>
