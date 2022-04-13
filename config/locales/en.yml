@@ -25,6 +25,7 @@ en:
   layouts:
     header:
       welcome: "Welcome"
+      manage: "Manage tests |"
 
   shared:
     errors:
@@ -45,6 +46,7 @@ en:
     nav:
       header: "TestGuru Admin Panel"
       welcome: "Welcome"
+      test_path: "Tests"
     tests:
       create:
         success: "Test was successfully created"
@@ -61,19 +63,39 @@ en:
         header: "Edit %{title} test"
       show:
         header: "%{title} test questions"
+      destroy:
+        deleted: "Test was deleted"
+      update:
+        edited: "Test was updated"
+
+
     questions:
       show:
         header: "%{title} questions"
         add_answer: "Add new answer"
         answers: "Answers"
+      create:
+        success: "Question was successfully created"
+      destroy:
+        deleted: "Question was deleted"
+      update:
+        edited: "Question was updated"
+      new:
+        header: "Create new %{title} question"
     answers:
       show:
-        header: "Questions:"
-        correct: "Correct?:"
+        header: "Answer:"
+        correct: "Correct answer:"
       edit:
         header: "Edit answer"
       new:
         header: "New answer"
+      create:
+        success: "Answer was successfully created"
+      destroy:
+        deleted: "Answer was deleted"
+      update:
+        edited: "Asnwer was updated"
 
   test_passages:
     show:
